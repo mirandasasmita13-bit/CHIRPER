@@ -24,19 +24,18 @@ class ChirpController extends Controller
      * Menyimpan cerita baru ke database.
      */
 
-public function store(\Illuminate\Http\Request $request)
+    public function store(\Illuminate\Http\Request $request)
 {
-    // 1. Validasi: Jangan sampe postingan kosong
+    // 1. Validasi
     $validated = $request->validate([ 'message' => 'required|string|max:255']);
-
-    // 2. Simpan ke Database
-    // Karena kita gak pake login, kita "tembak" aja pake User ID 1
+    
+    // 2. Simpan ke Database (Harus ada 'message' juga!)
     \App\Models\Chirp::create([
-        'user_id' => 1, 
-        'message' => $validated['message'],
+        'user_id' => auth()->id(), 
+        'message' => $validated['message'], // Tambahkan baris ini!
     ]);
 
-    // 3. Balik lagi ke halaman chirps
+    // 3. Balik lagi
     return redirect()->route('chirps.index');
 }
 }
