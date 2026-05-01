@@ -18,7 +18,7 @@
 
         <div class="ml-auto flex gap-4">
             <a class="btn btn-ghost btn-sm">Home</a>
-            <a class="btn btn-ghost btn-sm">Chirper</a>
+            <a class="btn btn-ghost btn-sm">Sign Up</a>
             <a class="btn btn-primary btn-sm">Login</a>
         </div>
     </nav>
@@ -39,10 +39,9 @@
 
             <!-- BUTTON -->
             <div class="mt-6">
-                <a class="bubble-btn">
-                    Mulai Sekarang
-                </a>
-            </div>
+                <div class="mt-6">
+    <a href="{{ route('chirps.index') }}" class="bubble-btn">Mulai Sekarang</a>
+</div>
 
         </div>
 
